@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: chinhung
+      changes:
+        - createTable:
+            tableName: emp
+            columns:
+              - column:
+                  name: emp_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column: 
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: chinhung
+      changes:
+        - insert:
+            tableName: emp
+            columns:
+              - column:
+                  name: first_name
+                  value: John
+              - column:
+                  name: last_name
+                  value: Chen
+        - insert:
+            tableName: emp
+            columns:
+              - column:
+                  name: first_name
+                  value: Mary
+              - column:
+                  name: last_name
+                  value: Lin
+        
