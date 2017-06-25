@@ -23,26 +23,4 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
-  - changeSet:
-      id: 2
-      author: chinhung
-      changes:
-        - insert:
-            tableName: emp
-            columns:
-              - column:
-                  name: first_name
-                  value: John
-              - column:
-                  name: last_name
-                  value: Chen
-        - insert:
-            tableName: emp
-            columns:
-              - column:
-                  name: first_name
-                  value: Mary
-              - column:
-                  name: last_name
-                  value: Lin
         
