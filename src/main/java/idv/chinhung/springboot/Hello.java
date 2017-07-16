@@ -1,11 +1,13 @@
 package idv.chinhung.springboot;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @EnableAutoConfiguration
+@Import({ SecurityConfig.class })
 public class Hello {
 
     @RequestMapping("/")
