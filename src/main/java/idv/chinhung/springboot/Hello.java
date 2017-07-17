@@ -16,6 +16,12 @@ public class Hello {
     	System.out.println("request in");
         return "Hello World!";
     }
+    
+    @RequestMapping("/auth-ed")
+    @ResponseBody
+    String authenticated() {
+        return "Authenticated!";
+    }
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Hello.class, args);
