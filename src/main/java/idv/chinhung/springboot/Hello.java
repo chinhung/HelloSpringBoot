@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 
+import idv.chinhung.springboot.security.SecurityConfig;
+
 @Controller
 @EnableAutoConfiguration
 @Import({ SecurityConfig.class })

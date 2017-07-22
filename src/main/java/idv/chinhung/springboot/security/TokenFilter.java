@@ -1,4 +1,4 @@
-package idv.chinhung.springboot;
+package idv.chinhung.springboot.security;
 
 import java.io.IOException;
 
