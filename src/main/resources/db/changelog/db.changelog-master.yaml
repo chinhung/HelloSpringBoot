@@ -8,7 +8,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: emp_id
-                  type: int
+                  type: BIGINT
                   autoIncrement: true
                   constraints:
                     primaryKey: true
@@ -23,4 +23,32 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
-        
+  - changeSet:
+      id: 2
+      author: chinhung
+      changes:
+        - createTable:
+            tableName: sys_user
+            columns:
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column: 
+                  name: user_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: token
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
