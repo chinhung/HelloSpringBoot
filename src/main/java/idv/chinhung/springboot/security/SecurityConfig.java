@@ -24,22 +24,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Inject
 	private TokenFilter tokenFilter;
 	
-	@Inject
-    public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.userDetailsService(userDetailsService);
+	@Override
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
     }
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        .authorizeRequests()
-        .antMatchers("/").permitAll()
-        .anyRequest().authenticated();
-		
-        http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);;
-
+		http.csrf().disable();
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		http.headers().cacheControl();
+		
+		http.authorizeRequests()
+        	.antMatchers("/").permitAll()
+        	.anyRequest().authenticated()
+        	.and()
+        	.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
