@@ -40,11 +40,9 @@ public class TokenFilter extends GenericFilterBean {
 		
 		Optional<String> username = getUsernameFromToken(token);
 		
-		if (username.isPresent() && SecurityContextHolder.getContext().getAuthentication() == null) {
-
+		if (username.isPresent()) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username.get());
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword());
-            authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
 		
