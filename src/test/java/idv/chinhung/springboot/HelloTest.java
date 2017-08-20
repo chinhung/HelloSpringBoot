@@ -28,12 +28,15 @@ public class HelloTest {
 	
 	@Before
 	public void setupMockMvc() {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webContext)
-			.apply(springSecurity()).build();
+		mockMvc = MockMvcBuilders
+			.webAppContextSetup(webContext)
+			.apply(springSecurity())
+			.build();
 	}
 	
 	@Test
 	public void rootTest() throws Exception {
-		mockMvc.perform(get("/")).andExpect(status().isOk());
+		mockMvc.perform(get("/"))
+			.andExpect(status().isOk());
 	}
 }
